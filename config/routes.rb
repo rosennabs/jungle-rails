@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get '/login', to: 'sessions#new', as: 'login'
+  post '/login', to: 'sessions#create'
+
+  get '/register', to: 'registrations#new', as: 'register'
+  post '/register', to: 'registrations#create'
+
+  delete '/logout', to: 'sessions#destroy', as: 'logout'
 
   namespace :admin do
     get 'categories/index'
@@ -10,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :products, only: [:index, :show]
   resources :categories, only: [:index, :show]
+  resources :users, only: [:new, :create]
 
 
   resource :cart, only: [:show] do
