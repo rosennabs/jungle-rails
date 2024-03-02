@@ -1,5 +1,5 @@
 <article>
-  <%= link_to product_path(product) do %>
+  <%= link_to product_path(product), class: 'product-link' do %>
     <%= image_tag product.image.thumb.url , alt: product.name %>
     <h1>
       <span><%= product.name %></span>
