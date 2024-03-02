@@ -22,5 +22,6 @@ describe("Jungle app", () => {
 
   it("should navigate to a product detail page by clicking on a product", () => {
     cy.get(".product-link").first().click();
+    cy.url().should("include", "/products/");
   });
 });
